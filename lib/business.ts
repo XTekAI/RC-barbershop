@@ -1,4 +1,8 @@
+// Square Appointments booking page. Paste the link here; until then "Book" buttons fall back to calling.
+const BOOKING_URL = 'https://book.squareup.com/appointments/5rtbwfur9uolzr/location/LCQ194PADZA5Y/services';
+
 export const BUSINESS = {
+  bookingUrl: BOOKING_URL,
   name: 'R&C Barbershop',
   phoneDisplay: '(609) 310-8842',
   phoneHref: 'tel:+16093108842',
@@ -19,3 +23,7 @@ export const BUSINESS = {
     { day: 'Sunday', time: '9 AM – 4 PM' },
   ],
 };
+
+export const hasBooking = (barberUrl?: string) => Boolean(barberUrl || BUSINESS.bookingUrl);
+// Where a "Book" button goes: barber's own Square link > general Square link > phone call.
+export const bookHref = (barberUrl?: string) => barberUrl || BUSINESS.bookingUrl || BUSINESS.phoneHref;

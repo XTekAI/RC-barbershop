@@ -1,10 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useLang } from '../lib/i18n';
-import { BUSINESS } from '../lib/business';
+import { bookHref } from '../lib/business';
 
+// bookingUrl: the barber's own Square booking link (optional).
 // Add a photo path (e.g. '/team/miguel.jpg' in /public/team) to show a photo instead of initials.
-const barbers: { name: string; nickname?: string; owner?: boolean; photo?: string }[] = [
+const barbers: { name: string; nickname?: string; owner?: boolean; bookingUrl?: string; photo?: string }[] = [
   { name: 'Raffy', owner: true },
   { name: 'Yoquelk', nickname: 'El Líder' },
   { name: 'Christopher' },
@@ -46,7 +47,7 @@ const Team: React.FC = () => {
               <h3 className="text-xl font-serif text-white group-hover:text-gold transition-colors">{b.name}</h3>
               {b.nickname && <p className="text-sm italic text-gold/80">"{b.nickname}"</p>}
               <p className="text-xs uppercase tracking-[0.2em] text-gray-500 mt-1">{b.owner ? t('owner') : t('barber')}</p>
-              <a href={BUSINESS.phoneHref} className="inline-block mt-4 text-xs font-bold uppercase tracking-widest text-gold border-b border-transparent hover:border-gold">
+              <a href={bookHref(b.bookingUrl)} className="inline-block mt-4 text-xs font-bold uppercase tracking-widest text-gold border-b border-transparent hover:border-gold">
                 {t('book_with')} {b.name}
               </a>
             </div>

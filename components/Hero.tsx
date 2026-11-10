@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Button from './Button';
 import Waves from './Waves';
 import { useLang } from '../lib/i18n';
-import { BUSINESS } from '../lib/business';
+import { bookHref, hasBooking } from '../lib/business';
 
 const Hero: React.FC = () => {
   const { t } = useLang();
@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
                 {t('hero_text')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button href={BUSINESS.phoneHref}>{t('call_to_book')}</Button>
+                <Button href={bookHref()}>{t(hasBooking() ? 'book_now' : 'call_to_book')}</Button>
                 <Button variant="outline" onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}>
                 {t('view_services')}
                 </Button>

@@ -6,7 +6,7 @@ const dict = {
   en: {
     nav_home: 'Home', nav_services: 'Services', nav_team: 'Team', nav_gallery: 'Gallery',
     nav_reviews: 'Reviews', nav_about: 'About', nav_contact: 'Contact',
-    call: 'Call', call_to_book: 'Call to Book', call_now: 'Call Now',
+    call: 'Call', call_to_book: 'Call to Book', book_now: 'Book Now', call_now: 'Call Now',
     hero_eyebrow: 'Barbershop · Trenton, NJ',
     hero_title_1: 'Precision', hero_title_2: 'Style',
     hero_text: "Experience the art of traditional grooming with a modern touch. At R&C Barbershop, we don't just cut hair; we cultivate confidence.",
@@ -26,7 +26,7 @@ const dict = {
   es: {
     nav_home: 'Inicio', nav_services: 'Servicios', nav_team: 'Equipo', nav_gallery: 'Galería',
     nav_reviews: 'Reseñas', nav_about: 'Nosotros', nav_contact: 'Contacto',
-    call: 'Llamar', call_to_book: 'Llama para tu cita', call_now: 'Llamar ahora',
+    call: 'Llamar', call_to_book: 'Llama para tu cita', book_now: 'Reservar cita', call_now: 'Llamar ahora',
     hero_eyebrow: 'Barbería · Trenton, NJ',
     hero_title_1: 'Precisión', hero_title_2: 'Estilo',
     hero_text: 'Vive el arte de la barbería tradicional con un toque moderno. En R&C Barbershop no solo cortamos pelo; creamos confianza.',

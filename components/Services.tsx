@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useLang } from '../lib/i18n';
+import Button from './Button';
+import { bookHref } from '../lib/business';
 
 
 const services = [
@@ -46,13 +48,15 @@ const Services: React.FC = () => {
 
         <div className="grid md:grid-cols-2 gap-x-12 gap-y-12 max-w-5xl mx-auto">
           {services.map((service, index) => (
-            <motion.div
+            <motion.a
               key={index}
+              href={bookHref()}
+              aria-label={`${t('book_now')}: ${lang === 'es' ? service.es : service.name}`}
               initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: (index % 6) * 0.05, duration: 0.5 }}
-              className="group"
+              className="group block cursor-pointer"
             >
               <div className="flex justify-between items-baseline mb-2 border-b border-zinc-800 pb-2 group-hover:border-gold transition-colors duration-500">
                 <h3 className="text-xl md:text-2xl font-serif font-medium text-white group-hover:text-gold transition-colors duration-300">
@@ -64,8 +68,14 @@ const Services: React.FC = () => {
                 <span className="italic">{lang === 'es' ? service.name : service.es}</span>
                 <span>{service.time}</span>
               </div>
-            </motion.div>
+              <span className="inline-block mt-3 text-xs font-bold uppercase tracking-widest text-gold opacity-70 group-hover:opacity-100 transition-opacity">
+                {t('book_now')} →
+              </span>
+            </motion.a>
           ))}
+        </div>
+        <div className="text-center mt-16">
+          <Button href={bookHref()}>{t('book_now')}</Button>
         </div>
       </div>
     </section>

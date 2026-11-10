@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Scissors } from 'lucide-react';
 import { useLang, LangToggle, Key } from '../lib/i18n';
-import { BUSINESS } from '../lib/business';
+import { BUSINESS, bookHref, hasBooking } from '../lib/business';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
@@ -59,6 +59,11 @@ const Navbar: React.FC = () => {
           >
             {t('call')} {BUSINESS.phoneDisplay}
           </a>
+          {hasBooking() && (
+            <a href={bookHref()} className="px-6 py-2 bg-gold text-black text-xs font-bold uppercase tracking-widest hover:bg-white transition-all duration-300">
+              {t('book_now')}
+            </a>
+          )}
           <LangToggle />
         </div>
 
@@ -95,11 +100,11 @@ const Navbar: React.FC = () => {
                 </a>
               ))}
               <a
-                href={BUSINESS.phoneHref}
+                href={bookHref()}
                 onClick={() => setIsOpen(false)}
                 className="mt-4 text-center py-3 bg-gold text-black font-bold uppercase tracking-widest"
               >
-                {t('call_to_book')}
+                {t(hasBooking() ? 'book_now' : 'call_to_book')}
               </a>
             </div>
           </motion.div>
