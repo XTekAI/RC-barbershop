@@ -1,0 +1,31 @@
+# R&C Barbershop
+
+> Barbershop at 798 Chambers St, Trenton, NJ 08611. Phone (609) 310-8842. Walk-ins welcome. English and Spanish spoken.
+
+## Hours
+- Monday–Wednesday: 9 AM – 7 PM
+- Thursday–Saturday: 8 AM – 8 PM
+- Sunday: 9 AM – 4 PM
+
+## Services and prices (USD)
+- Regular Haircut: $35 (30 min)
+- Fade: $30 (35 min)
+- Fade & Blowout: $30 (30 min)
+- Haircut + Beard: $40 (40 min)
+- Haircut + Eyebrows: $40 (40 min)
+- Hair + Beard + Eyebrows: $45 (45 min)
+- Kids Cut (10 and under): $30 (35 min)
+- Veteran & Senior (62+) Haircut: $25 (30 min)
+- Beard Trim: $20 (30 min)
+- Shape Up: $20 (15 min)
+- Beard Tint: $15 (15 min)
+- Eyebrows: $10 (20 min)
+- Hair Designs: from $10 (30 min)
+
+## Team
+- Raffy – Owner & Barber
+- Yoquelk ("El Líder"), Christopher, Julio, Miguel, Roger, Tito – Barbers
+
+## Links
+- Website: https://www.rcbarbershop.com/
+- Google Maps profile & reviews: https://www.google.com/maps/place/R%26C+Barbershop/@40.2129966,-74.7397474,17z

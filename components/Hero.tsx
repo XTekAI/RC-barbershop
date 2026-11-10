@@ -2,8 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Button from './Button';
 import Waves from './Waves';
+import { useLang } from '../lib/i18n';
+import { BUSINESS } from '../lib/business';
 
 const Hero: React.FC = () => {
+  const { t } = useLang();
   return (
     <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
       {/* Background Waves */}
@@ -26,20 +29,19 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8 }}
             >
             <span className="block text-gold text-sm md:text-base tracking-[0.3em] uppercase mb-4 font-semibold">
-                Established 2024
+                {t('hero_eyebrow')}
             </span>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
-                Precision <span className="text-gold">&</span> <br />
-                Style
+                {t('hero_title_1')} <span className="text-gold">&</span> <br />
+                {t('hero_title_2')}
             </h1>
             <p className="text-gray-300 max-w-xl mx-auto mb-10 text-base md:text-lg leading-relaxed">
-                Experience the art of traditional grooming with a modern touch. 
-                At RC Barbershop, we don't just cut hair; we cultivate confidence.
+                {t('hero_text')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button>Book Appointment</Button>
+                <Button href={BUSINESS.phoneHref}>{t('call_to_book')}</Button>
                 <Button variant="outline" onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}>
-                View Services
+                {t('view_services')}
                 </Button>
             </div>
             </motion.div>
@@ -53,7 +55,7 @@ const Hero: React.FC = () => {
         transition={{ delay: 1, duration: 1 }}
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center gap-2 pointer-events-none"
       >
-        <span className="text-[10px] uppercase tracking-widest text-gray-400">Scroll</span>
+        <span className="text-[10px] uppercase tracking-widest text-gray-400">{t('scroll')}</span>
         <div className="w-[1px] h-12 bg-gradient-to-b from-gold to-transparent"></div>
       </motion.div>
     </section>

@@ -1,17 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Scissors } from 'lucide-react';
+import { useLang, LangToggle, Key } from '../lib/i18n';
+import { BUSINESS } from '../lib/business';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'Services', href: '#services' },
-  { name: 'Gallery', href: '#gallery' },
-  { name: 'About', href: '#about' },
-  { name: 'Contact', href: '#contact' },
-];
+  { name: 'nav_home', href: '#home' },
+  { name: 'nav_services', href: '#services' },
+  { name: 'nav_team', href: '#team' },
+  { name: 'nav_gallery', href: '#gallery' },
+  { name: 'nav_reviews', href: '#reviews' },
+  { name: 'nav_about', href: '#about' },
+  { name: 'nav_contact', href: '#contact' },
+] as { name: Key; href: string }[];
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useLang();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -31,7 +36,7 @@ const Navbar: React.FC = () => {
             <Scissors className="w-6 h-6 text-gold group-hover:text-black transition-colors duration-300" />
           </div>
           <div className="flex flex-col">
-            <span className="text-xl font-bold tracking-widest text-white leading-none">RC</span>
+            <span className="text-xl font-bold tracking-widest text-white leading-none">R&amp;C</span>
             <span className="text-[10px] tracking-[0.2em] text-gold uppercase">Barbershop</span>
           </div>
         </a>
@@ -44,25 +49,29 @@ const Navbar: React.FC = () => {
               href={link.href}
               className="text-sm font-medium text-gray-300 hover:text-gold transition-colors tracking-wide uppercase relative group"
             >
-              {link.name}
+              {t(link.name)}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
             </a>
           ))}
           <a
-            href="#book"
+            href={BUSINESS.phoneHref}
             className="px-6 py-2 border border-gold text-gold text-xs font-bold uppercase tracking-widest hover:bg-gold hover:text-black transition-all duration-300"
           >
-            Book Now
+            {t('call')} {BUSINESS.phoneDisplay}
           </a>
+          <LangToggle />
         </div>
 
         {/* Mobile Toggle */}
+        <div className="md:hidden flex items-center gap-4">
+        <LangToggle />
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden text-white hover:text-gold transition-colors"
         >
           {isOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
         </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -82,15 +91,15 @@ const Navbar: React.FC = () => {
                   onClick={() => setIsOpen(false)}
                   className="text-lg font-medium text-gray-300 hover:text-gold transition-colors uppercase"
                 >
-                  {link.name}
+                  {t(link.name)}
                 </a>
               ))}
               <a
-                href="#book"
+                href={BUSINESS.phoneHref}
                 onClick={() => setIsOpen(false)}
                 className="mt-4 text-center py-3 bg-gold text-black font-bold uppercase tracking-widest"
               >
-                Book Appointment
+                {t('call_to_book')}
               </a>
             </div>
           </motion.div>
