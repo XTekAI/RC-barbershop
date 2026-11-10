@@ -6,19 +6,19 @@ import { bookHref } from '../lib/business';
 // bookingUrl: the barber's own Square booking link (optional).
 // Add a photo path (e.g. '/team/miguel.jpg' in /public/team) to show a photo instead of initials.
 const barbers: { name: string; nickname?: string; owner?: boolean; bookingUrl?: string; photo?: string }[] = [
-  { name: 'Raffy', owner: true },
-  { name: 'Yoquelk', nickname: 'El Líder' },
-  { name: 'Christopher' },
-  { name: 'Julio' },
-  { name: 'Miguel' },
-  { name: 'Roger' },
-  { name: 'Tito' },
+  { name: 'Raffy', owner: true, bookingUrl: 'https://book.squareup.com/appointments/5rtbwfur9uolzr/location/LCQ194PADZA5Y/services?buttonTextColor=ffffff&color=000000&locale=en&referrer=so&team_member_id=TMIESypIkStNjoj3' },
+  { name: 'Yoquelk', nickname: 'El Líder', bookingUrl: 'https://book.squareup.com/appointments/5rtbwfur9uolzr/location/LCQ194PADZA5Y/services?buttonTextColor=ffffff&color=000000&locale=en&referrer=so&team_member_id=TMwTHShCGjYzaEUF' },
+  { name: 'Christopher', bookingUrl: 'https://book.squareup.com/appointments/5rtbwfur9uolzr/location/LCQ194PADZA5Y/services?buttonTextColor=ffffff&color=000000&locale=en&referrer=so&team_member_id=TMs1fYPwOes1G98Y' },
+  { name: 'Julio', bookingUrl: 'https://book.squareup.com/appointments/5rtbwfur9uolzr/location/LCQ194PADZA5Y/services?buttonTextColor=ffffff&color=000000&locale=en&referrer=so&team_member_id=TMgQtv5B_h7eRt-p' },
+  { name: 'Miguel', bookingUrl: 'https://book.squareup.com/appointments/5rtbwfur9uolzr/location/LCQ194PADZA5Y/services?buttonTextColor=ffffff&color=000000&locale=en&referrer=so&team_member_id=TMlTUWV8un19G5MQ' },
+  { name: 'Roger', bookingUrl: 'https://book.squareup.com/appointments/5rtbwfur9uolzr/location/LCQ194PADZA5Y?buttonTextColor=ffffff&color=000000&locale=en&referrer=so&team_member_id=TMin4TUVxleV0Um0' },
+  { name: 'Tito', bookingUrl: 'https://book.squareup.com/appointments/5rtbwfur9uolzr/location/LCQ194PADZA5Y?buttonTextColor=ffffff&color=000000&locale=en&referrer=so&team_member_id=TM82xk6oG_F43-tF' },
 ];
 
 const initials = (n: string) => n.slice(0, 2).toUpperCase();
 
 const Team: React.FC = () => {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   return (
   <section id="team" className="py-24 bg-black">
     <div className="container mx-auto px-6">
@@ -47,7 +47,7 @@ const Team: React.FC = () => {
               <h3 className="text-xl font-serif text-white group-hover:text-gold transition-colors">{b.name}</h3>
               {b.nickname && <p className="text-sm italic text-gold/80">"{b.nickname}"</p>}
               <p className="text-xs uppercase tracking-[0.2em] text-gray-500 mt-1">{b.owner ? t('owner') : t('barber')}</p>
-              <a href={bookHref(b.bookingUrl)} className="inline-block mt-4 text-xs font-bold uppercase tracking-widest text-gold border-b border-transparent hover:border-gold">
+              <a href={bookHref(b.bookingUrl).replace('locale=en', `locale=${lang}`)} className="inline-block mt-4 text-xs font-bold uppercase tracking-widest text-gold border-b border-transparent hover:border-gold">
                 {t('book_with')} {b.name}
               </a>
             </div>
