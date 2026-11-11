@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, Clock } from 'lucide-react';
+import { MapPin, Phone, Clock, Instagram } from 'lucide-react';
 import Button from './Button';
 import { useLang, DAYS } from '../lib/i18n';
 import { BUSINESS } from '../lib/business';
@@ -35,6 +35,15 @@ const Contact: React.FC = () => {
               <div>
                 <h4 className="text-white font-bold uppercase tracking-wider mb-1">{t('phone')}</h4>
                 <p className="text-gray-400 group-hover:text-gold transition-colors">{BUSINESS.phoneDisplay}</p>
+              </div>
+            </a>
+            <a href={BUSINESS.instagram} target="_blank" rel="noopener noreferrer" className="flex items-start gap-4 group">
+              <div className="p-3 bg-zinc-900 rounded-lg group-hover:bg-gold transition-colors duration-300">
+                <Instagram className="text-gold group-hover:text-black w-6 h-6" />
+              </div>
+              <div>
+                <h4 className="text-white font-bold uppercase tracking-wider mb-1">Instagram</h4>
+                <p className="text-gray-400 group-hover:text-gold transition-colors">{BUSINESS.instagramHandle}</p>
               </div>
             </a>
             <div className="flex items-start gap-4">

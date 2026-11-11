@@ -1,5 +1,5 @@
 import React from 'react';
-import { Scissors, MapPin, Phone } from 'lucide-react';
+import { Scissors, MapPin, Phone, Instagram } from 'lucide-react';
 import { useLang, Key } from '../lib/i18n';
 import { BUSINESS } from '../lib/business';
 
@@ -28,6 +28,9 @@ const Footer: React.FC = () => {
           </a>
           <a href={BUSINESS.phoneHref} className="flex items-center gap-2 text-gray-400 hover:text-gold transition-colors">
             <Phone className="w-4 h-4 text-gold" /> {BUSINESS.phoneDisplay}
+          </a>
+          <a href={BUSINESS.instagram} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-400 hover:text-gold transition-colors">
+            <Instagram className="w-4 h-4 text-gold" /> {BUSINESS.instagramHandle}
           </a>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Scissors } from 'lucide-react';
+import { Menu, X, Scissors, Instagram } from 'lucide-react';
 import { useLang, LangToggle, Key } from '../lib/i18n';
 import { BUSINESS, bookHref, hasBooking } from '../lib/business';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -64,6 +64,9 @@ const Navbar: React.FC = () => {
               {t('book_now')}
             </a>
           )}
+          <a href={BUSINESS.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-gray-300 hover:text-gold transition-colors">
+            <Instagram className="w-5 h-5" />
+          </a>
           <LangToggle />
         </div>
 
